@@ -27,10 +27,119 @@ body{
 }
 .container nav{
     width: 100px;
-    height: 400px;
+    height: min-content;
+    padding: 16px;
     border-radius: 12px;
     /* backdrop-filter:让背景模糊 */
     backdrop-filter: blur(18px);
     background: rgba(230,235,240,.7);
     border: 2px solid rgba(230,235,240,.7);
+    box-shadow: 0 0 30px rgba(0,0,0,.05);
+    transition: .4s cubic-bezier(.8,.5,.5,.8);
+}
+.container nav:hover{
+    width: 320px;
+}
+nav .brand{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+nav .brand img {
+    width: 65px;
+    border-radius: 50%;
+    border: 4px solid rgba(230,235,240,.7);
+}
+nav .brand p {
+    color: #505257;
+    font-weight: 500;
+    font-style: italic;
+    text-align: left;
+    line-height: 22px;
+    margin: 0 0 0 12px;
+}
+nav .brand p span{
+    color: #3c3e43;
+    display: block;
+    font-size: 26px;
+    font-style: normal;
+}
+nav .line{
+    width: 100%;
+    height: 2px;
+    margin: 32px 0;
+    background: #87a3af;
+}
+.list li {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 12px 0;
+    padding: 20px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: .4s ease-in-out;
+}
+.list li:hover{
+    background: rgba(230, 235, 240, .4);
+}
+.list li.active{
+    background: #3681f6;
+}
+.list li.active span{
+    color: #fff;
+}
+.list span{
+    color: #505257;
+}
+.brand p,
+.list span{
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(20px);
+}
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        pointer-events: unset;
+        transform: translateX(0);
+    }
+}
+nav:hover .brand p {
+    animation: fadeIn .4s ease-out forwards;
+    animation-delay: .4s;
+}
+nav:hover .list span {
+    animation: fadeIn .4s ease-out forwards;
+}
+nav:hover .list li:nth-child(1) span{
+    animation-delay: .3s;
+}
+nav:hover .list li:nth-child(2) span{
+    animation-delay: .4s;
+}
+nav:hover .list li:nth-child(3) span{
+    animation-delay: .5s;
+}
+nav:hover .list li:nth-child(4) span{
+    animation-delay: .6s;
+}
+nav:hover .list li:nth-child(5) span{
+    animation-delay: .7s;
+}
+
+nav .list i {
+    font-size: 20px;
+    background: linear-gradient(
+        -135deg,
+        #838487,
+        #3c3e43
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.icon{
+    width: 20px;
+    height: 20px;
+    display: flex;
 }
